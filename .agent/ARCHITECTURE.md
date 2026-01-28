@@ -25,7 +25,7 @@ Based on the original [Antigravity Kit](https://github.com/...) adapted for the 
 ├── skills/                  # 33 Skills (adapting...)
 ├── workflows/               # 10 Slash Commands
 ├── rules/                   # Global Rules
-└── scripts/                 # Validation Scripts
+└── scripts/                 # Validation Scripts (PHP)
 ```
 
 ---
@@ -142,6 +142,19 @@ Modular knowledge domains. Skills are being adapted from the original kit.
 | Deploy | `devops-engineer` | laravel-deployment |
 | Debug | `debugger` | systematic-debugging |
 | Plan | `project-planner` | brainstorming, plan-writing |
+
+---
+
+## 🛠️ Scripts
+
+Scripts PHP nativos para automação e validação.
+
+| Script | Descrição | Equivalente ao Original |
+| ------ | --------- | ----------------------- |
+| `checklist.php` | Validação completa (Security, Lint, Test, DB) | Consolida `security_scan`, `lint_runner`, `test_runner` |
+| `verify_all.php` | Verificação pré-deploy | `verify_all.py` |
+| `session_manager.php` | Gerenciamento de contexto da sessão | `session_manager.py` |
+| `auto_preview.php` | Preview server Automator | `auto_preview.py` |
 
 ---
 

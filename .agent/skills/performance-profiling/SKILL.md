@@ -14,7 +14,7 @@ allowed-tools: Read, Glob, Grep, Bash
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| `scripts/lighthouse_audit.py` | Lighthouse performance audit | `python scripts/lighthouse_audit.py https://example.com` |
+| `checklist.php` | Core Web Vitals check (via URL mode) | `php .agent/scripts/checklist.php --url <url>` |
 
 ---
 

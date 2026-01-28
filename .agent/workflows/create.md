@@ -41,6 +41,9 @@ php artisan make:livewire Posts/CreatePost
 
 # Form Request
 php artisan make:request StorePostRequest
+
+# Filament Resource
+php artisan make:filament-resource Post --generate
 ```
 
 ### 4. Implement the Feature

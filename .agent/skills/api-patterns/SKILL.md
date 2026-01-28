@@ -77,5 +77,5 @@ Before designing an API:
 
 | Script | Purpose | Command |
 |--------|---------|---------|
-| `scripts/api_validator.py` | API endpoint validation | `python scripts/api_validator.py <project_path>` |
+| `checklist.php` | API testing via Pest | `php .agent/scripts/checklist.php` |
 

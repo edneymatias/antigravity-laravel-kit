@@ -1,6 +1,4 @@
-# Upstream Sources
-
-Este arquivo rastreia as versões dos projetos pai usados para construir cada versão do antigravity-laravel-kit.
+# Antigravity Laravel Kit v1.2.0
 
 ---
 
@@ -78,8 +76,9 @@ Os seguintes componentes foram **adaptados** (não copiados diretamente):
 
 ## Version History
 
-| Version | Date | antigravity-kit | laravel-boost | Notes |
-|---------|------|-----------------|---------------|-------|
-| 1.1.0 | 2026-01-28 | dc4f3ef | v2.0.4 | Added filament-expert skill |
-| 1.0.1 | 2026-01-28 | dc4f3ef | v2.0.4 | Sync with laravel-boost v2.0.4 (no content changes) |
-| 1.0.0 | 2026-01-28 | dc4f3ef | 20c246b | Initial release |
+| Version | Laravel Boost | Changes |
+|---------|---------------|---------|
+| **v1.2.0** | v2.0.4 | Ecosystem Alignment (PHP Scripts, i18n restore, Doc cleanup) |
+| v1.1.0 | v2.0.4 | Filament 4 Support + Example Guide |
+| 1.0.1 | v2.0.4 | Sync with laravel-boost v2.0.4 (no content changes) |
+| 1.0.0 | 20c246b | Initial release |
