@@ -101,6 +101,11 @@ Invoke agents by name:
 @test-engineer Write Pest tests for PostController
 ```
 
+## 📚 Documentation
+
+- **[Example: Building a CRM with Filament](docs/guide/examples/filament-crm.md)**
+  Step-by-step guide to building a Customer Relationship Management system using Antigravity agents and workflows.
+
 ## 🙏 Credits & Acknowledgments
 
 Este projeto **não existiria** sem o trabalho excepcional de dois projetos fundamentais. Todo o crédito vai para eles:
