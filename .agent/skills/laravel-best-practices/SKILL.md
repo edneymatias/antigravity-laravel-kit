@@ -144,6 +144,7 @@ Use `php artisan make:*` for everything:
 - `make:request StorePostRequest`
 - `make:test CreatePostTest --pest`
 - `make:livewire Posts/CreatePost`
+- `make:filament-resource Post --generate`
 
 ## Testing
 

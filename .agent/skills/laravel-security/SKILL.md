@@ -156,6 +156,7 @@ Route::middleware('throttle:login')->post('/login', LoginController::class);
 
 ### Authentication
 - [ ] Using Sanctum for API/SPA
+- [ ] Implement `FilamentUser` for Admin access
 - [ ] Password hashing (bcrypt default)
 - [ ] Rate limiting on login
 - [ ] Email verification if needed
