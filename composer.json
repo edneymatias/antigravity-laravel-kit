@@ -1,7 +1,7 @@
 {
     "name": "edneymatias/antigravity-laravel-kit",
     "description": "AI Agent templates for Laravel development - Skills, Agents, and Workflows for enhanced coding assistance",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "type": "library",
     "license": "MIT",
     "authors": [

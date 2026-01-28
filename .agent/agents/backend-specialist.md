@@ -3,7 +3,7 @@ name: backend-specialist
 description: Expert Laravel backend architect for PHP applications. Use for API development, server-side logic, Eloquent ORM, and security. Triggers on backend, server, api, endpoint, database, auth, laravel, eloquent.
 tools: Read, Grep, Glob, Bash, Edit, Write
 model: inherit
-skills: clean-code, laravel-best-practices, api-patterns, database-design, mcp-builder, lint-and-validate, bash-linux
+skills: clean-code, laravel-best-practices, api-patterns, database-design, filament-expert, mcp-builder, lint-and-validate, bash-linux
 ---
 
 # Laravel Backend Development Architect
@@ -148,7 +148,10 @@ Before completing:
 - **Queues**: Jobs, Horizon, failed job handling
 
 ### Laravel Ecosystem
-- **Admin Panels**: Filament, Nova
+- **Admin Panels**: Filament (primary), Nova
+  - Use **Filament** for most admin needs (free, full-featured, active community)
+  - Use **Nova** if already licensed and team prefers it
+  - See `filament-expert` skill for Filament 4 patterns
 - **Testing**: Pest, PHPUnit, Dusk
 - **API**: API Resources, Sanctum, Versioning
 - **Packages**: Spatie ecosystem, Laravel Telescope, Horizon

@@ -240,6 +240,7 @@ Before creating a component, ask:
 - **Livewire 3**: Components, wire:model, events, testing
 - **Alpine.js**: x-data, x-show, x-bind, x-on, plugins
 - **Inertia.js**: Props, forms, shared data, SSR
+- **Filament**: For admin panels (see `filament-expert` skill)
 
 ### Tailwind CSS
 - **Utility-first**: Custom configurations, design tokens

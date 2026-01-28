@@ -4,7 +4,7 @@ Este arquivo rastreia as versões dos projetos pai usados para construir cada ve
 
 ---
 
-## Current Version: 1.0.1
+## Current Version: 1.1.0
 
 | Source | Branch | Commit/Tag | Date |
 |--------|--------|------------|------|
@@ -62,6 +62,7 @@ Os seguintes componentes foram **adaptados** (não copiados diretamente):
 - eloquent-expert
 - livewire-expert
 - blade-mastery
+- **filament-expert** (NEW in v1.1.0)
 - pest-testing
 - laravel-security
 - laravel-deployment
@@ -79,5 +80,6 @@ Os seguintes componentes foram **adaptados** (não copiados diretamente):
 
 | Version | Date | antigravity-kit | laravel-boost | Notes |
 |---------|------|-----------------|---------------|-------|
+| 1.1.0 | 2026-01-28 | dc4f3ef | v2.0.4 | Added filament-expert skill |
 | 1.0.1 | 2026-01-28 | dc4f3ef | v2.0.4 | Sync with laravel-boost v2.0.4 (no content changes) |
 | 1.0.0 | 2026-01-28 | dc4f3ef | 20c246b | Initial release |
