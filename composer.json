@@ -1,0 +1,48 @@
+{
+    "name": "edneymatias/antigravity-laravel-kit",
+    "description": "AI Agent templates for Laravel development - Skills, Agents, and Workflows for enhanced coding assistance",
+    "version": "1.0.1",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Edney Matias"
+        }
+    ],
+    "homepage": "https://github.com/edneymatias/antigravity-laravel-kit",
+    "keywords": [
+        "antigravity",
+        "ai",
+        "agent",
+        "gemini",
+        "laravel",
+        "livewire",
+        "skills",
+        "templates"
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Antigravity\\LaravelKit\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Antigravity\\LaravelKit\\AntigravityServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Antigravity\\LaravelKit\\Installer::postInstall"
+        ],
+        "post-update-cmd": [
+            "Antigravity\\LaravelKit\\Installer::postUpdate"
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

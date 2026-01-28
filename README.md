@@ -1,0 +1,170 @@
+# Antigravity Laravel Kit 🚀
+
+> AI Agent templates for Laravel development - Skills, Agents, and Workflows optimized for the Laravel ecosystem.
+
+[![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=flat&logo=laravel)](https://laravel.com)
+[![Livewire](https://img.shields.io/badge/Livewire-3.x-FB70A9?style=flat)](https://livewire.laravel.com)
+[![Pest](https://img.shields.io/badge/Pest-2.x-00C49B?style=flat)](https://pestphp.com)
+[![Packagist](https://img.shields.io/packagist/v/edneymatias/antigravity-laravel-kit)](https://packagist.org/packages/edneymatias/antigravity-laravel-kit)
+
+---
+
+## 🚀 Installation
+
+```bash
+composer require edneymatias/antigravity-laravel-kit --dev
+```
+
+The `.agent` folder will be **automatically created** in your project root on install.
+
+### Manual Install (if needed)
+
+```bash
+php artisan antigravity:install
+```
+
+### Reinstall / Update
+
+```bash
+php artisan antigravity:install --force
+```
+
+---
+
+### Agents
+
+| Agent | Focus |
+|-------|-------|
+| `backend-specialist` | Controllers, Eloquent, Jobs, APIs |
+| `frontend-specialist` | Blade, Livewire, Alpine, Tailwind |
+| `database-architect` | Eloquent, Migrations, Factories |
+| `test-engineer` | Pest, PHPUnit, Dusk |
+| `security-auditor` | Sanctum, Policies, Gates |
+| `devops-engineer` | Forge, Vapor, Sail |
+| `debugger` | Telescope, Debugbar, Logs |
+| `project-planner` | Task breakdown, planning |
+| `orchestrator` | Multi-agent coordination |
+| And 9 more... | See `.agent/ARCHITECTURE.md` |
+
+### Workflows
+
+| Command | Description |
+|---------|-------------|
+| `/create` | Create new Laravel features with Artisan |
+| `/test` | Run Pest/PHPUnit tests |
+| `/deploy` | Deploy with Forge or manually |
+| `/debug` | Debug with Telescope/Debugbar |
+| `/preview` | Start dev server |
+| `/brainstorm` | Socratic discovery |
+| `/plan` | Task breakdown |
+
+### Skills
+
+- **Laravel Core**: laravel-best-practices, eloquent-expert, artisan-mastery
+- **Frontend**: livewire-expert, blade-mastery, tailwind-patterns
+- **Testing**: pest-testing, tdd-workflow
+- **DevOps**: laravel-deployment, laravel-sail
+- **And more...**: 32 skills total
+
+---
+
+## 🚀 Quick Start
+
+1. **Clone/Copy** the `.agent/` folder to your Laravel project
+2. **Configure** your AI assistant to use the agents and skills
+3. **Use workflows** with slash commands like `/create`, `/test`, `/deploy`
+
+---
+
+## 📁 Directory Structure
+
+```
+.agent/
+├── ARCHITECTURE.md     # System overview
+├── agents/             # 18 specialist agents
+├── skills/             # 32 knowledge modules
+├── workflows/          # 10 slash commands
+├── rules/              # Global rules
+└── scripts/            # Validation scripts
+```
+
+---
+
+## 📝 Agent Usage
+
+Invoke agents by name:
+
+```
+@backend-specialist Help me create a REST API for posts
+@frontend-specialist Build a Livewire component for comments
+@database-architect Design the schema for a blog
+@test-engineer Write Pest tests for PostController
+```
+
+## 🙏 Credits & Acknowledgments
+
+Este projeto **não existiria** sem o trabalho excepcional de dois projetos fundamentais. Todo o crédito vai para eles:
+
+### [Antigravity Kit](https://github.com/vudovn/antigravity-kit)
+
+O **Antigravity Kit** é a base completa deste projeto. A arquitetura modular de agents, skills e workflows, o sistema de routing inteligente, e toda a filosofia de desenvolvimento assistido por IA foram criados por este projeto incrível.
+
+**O que utilizamos:**
+- 🏗️ Arquitetura completa de `.agent/` (agents, skills, workflows)
+- 🤖 8 agents mantidos integralmente (project-planner, orchestrator, etc.)
+- 📚 24 skills preservados (clean-code, brainstorming, architecture, etc.)
+- 🔄 3 workflows mantidos (brainstorm, plan, orchestrate)
+- 📜 Scripts de validação (checklist.py, verify_all.py)
+- ✨ Princípios de Design UI/UX (Deep Design Thinking, Purple Ban, etc.)
+
+> **Sem o Antigravity Kit, este projeto simplesmente não existiria.**
+
+---
+
+### [Laravel Boost](https://github.com/laravel/boost)
+
+O **Laravel Boost** forneceu todo o contexto Laravel-específico que tornou possível adaptar o Antigravity Kit para o ecossistema Laravel. As práticas, padrões e convenções do "Laravel Way" vieram diretamente deste projeto.
+
+**O que utilizamos:**
+- 📖 Contexto do "Laravel Way" (Eloquent, Form Requests, Policies)
+- ⚡ Padrões Livewire 3 (wire:model.live, eventos, testing)
+- 🎨 Convenções Blade (components, slots, layouts)
+- 🧪 Práticas de testing com Pest
+- 🔐 Padrões de segurança (Sanctum, Gates, Policies)
+- 🚀 Práticas de deployment (Forge, Vapor, Sail)
+
+> **Sem o Laravel Boost, não teríamos o conhecimento Laravel necessário para esta adaptação.**
+
+---
+
+### Um Trabalho de Combinação
+
+O **Antigravity Laravel Kit** é essencialmente uma **combinação** desses dois projetos extraordinários:
+
+```
+┌─────────────────────┐     ┌─────────────────────┐
+│   Antigravity Kit   │     │    Laravel Boost    │
+│   ───────────────   │     │   ───────────────   │
+│  • Arquitetura      │  +  │  • Laravel Way      │
+│  • Agents/Skills    │     │  • Livewire/Blade   │
+│  • Workflows        │     │  • Pest Testing     │
+│  • Design Principles│     │  • Security/Deploy  │
+└─────────────────────┘     └─────────────────────┘
+            │                         │
+            └────────────┬────────────┘
+                         ▼
+        ┌─────────────────────────────────┐
+        │   Antigravity Laravel Kit       │
+        │   ─────────────────────────     │
+        │   AI Agent Templates for        │
+        │   Laravel Development           │
+        └─────────────────────────────────┘
+```
+
+**Agradecemos imensamente aos mantenedores e contribuidores de ambos os projetos.** 🎉
+
+---
+
+## 📄 License
+
+MIT License - See [LICENSE](LICENSE) for details.
