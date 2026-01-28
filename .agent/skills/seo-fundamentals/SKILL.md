@@ -1,129 +1,96 @@
 ---
 name: seo-fundamentals
-description: SEO fundamentals, E-E-A-T, Core Web Vitals, and Google algorithm principles.
+description: SEO best practices for Laravel. Meta tags, OpenGraph, Sitemap generation, and Structured Data.
 allowed-tools: Read, Glob, Grep
 ---
 
-# SEO Fundamentals
+# SEO for Laravel
 
-> Principles for search engine visibility.
-
----
-
-## 1. E-E-A-T Framework
-
-| Principle | Signals |
-|-----------|---------|
-| **Experience** | First-hand knowledge, real examples |
-| **Expertise** | Credentials, depth of knowledge |
-| **Authoritativeness** | Backlinks, mentions, industry recognition |
-| **Trustworthiness** | HTTPS, transparency, accurate info |
+> Technical and content SEO practices optimized for the Laravel ecosystem.
 
 ---
 
-## 2. Core Web Vitals
+## 1. Essential Packages
 
-| Metric | Target | Measures |
-|--------|--------|----------|
-| **LCP** | < 2.5s | Loading performance |
-| **INP** | < 200ms | Interactivity |
-| **CLS** | < 0.1 | Visual stability |
+Don't manually manage meta tags. Use battle-tested packages.
 
----
+### Spatie Laravel SEO (Recommended)
+Automatically generates meta tags and structured data.
 
-## 3. Technical SEO Principles
+```bash
+composer require spatie/laravel-tags spatie/laravel-seo
+```
 
-### Site Structure
+### Spatie Laravel Sitemap
+Generates `sitemap.xml` dynamically.
 
-| Element | Purpose |
-|---------|---------|
-| XML sitemap | Help crawling |
-| robots.txt | Control access |
-| Canonical tags | Prevent duplicates |
-| HTTPS | Security signal |
-
-### Performance
-
-| Factor | Impact |
-|--------|--------|
-| Page speed | Core Web Vital |
-| Mobile-friendly | Ranking factor |
-| Clean URLs | Crawlability |
+```bash
+composer require spatie/laravel-sitemap
+```
 
 ---
 
-## 4. Content SEO Principles
+## 2. Implementation Patterns
 
-### Page Elements
+### Meta Tags in Blade
+Using a shared layout (`resources/views/layouts/app.blade.php`):
 
-| Element | Best Practice |
-|---------|---------------|
-| Title tag | 50-60 chars, keyword front |
-| Meta description | 150-160 chars, compelling |
-| H1 | One per page, main keyword |
-| H2-H6 | Logical hierarchy |
-| Alt text | Descriptive, not stuffed |
+```blade
+<head>
+    {{-- Basic Meta --}}
+    <title>@yield('title', config('app.name'))</title>
+    <meta name="description" content="@yield('description', 'Default app description')">
 
-### Content Quality
+    {{-- Open Graph / Social --}}
+    <meta property="og:title" content="@yield('title')" />
+    <meta property="og:description" content="@yield('description')" />
+    <meta property="og:image" content="@yield('image', asset('images/og-default.jpg'))" />
+    
+    {{-- Canonical --}}
+    <link rel="canonical" href="{{ url()->current() }}" />
+</head>
+```
 
-| Factor | Importance |
-|--------|------------|
-| Depth | Comprehensive coverage |
-| Freshness | Regular updates |
-| Uniqueness | Original value |
-| Readability | Clear writing |
+### Dynamic SEO (Models)
+Using `spatie/laravel-seo` on a Post model:
 
----
+```php
+use Spatie\Seo\Seo;
 
-## 5. Schema Markup Types
-
-| Type | Use |
-|------|-----|
-| Article | Blog posts, news |
-| Organization | Company info |
-| Person | Author profiles |
-| FAQPage | Q&A content |
-| Product | E-commerce |
-| Review | Ratings |
-| BreadcrumbList | Navigation |
-
----
-
-## 6. AI Content Guidelines
-
-### What Google Looks For
-
-| ✅ Do | ❌ Don't |
-|-------|----------|
-| AI draft + human edit | Publish raw AI content |
-| Add original insights | Copy without value |
-| Expert review | Skip fact-checking |
-| Follow E-E-A-T | Keyword stuffing |
+public function show(Post $post)
+{
+    seo()
+        ->title($post->title)
+        ->description($post->excerpt)
+        ->image($post->cover_url)
+        ->twitter();
+        
+    return view('posts.show', compact('post'));
+}
+```
 
 ---
 
-## 7. Ranking Factors (Prioritized)
+## 3. Technical Checklist (Laravel)
 
-| Priority | Factor |
-|----------|--------|
-| 1 | Quality, relevant content |
-| 2 | Backlinks from authority sites |
-| 3 | Page experience (Core Web Vitals) |
-| 4 | Mobile optimization |
-| 5 | Technical SEO fundamentals |
+- [ ] **Sitemap**: Configure `spatie/laravel-sitemap` to run daily via Scheduler.
+- [ ] **Robots.txt**: Ensure `public/robots.txt` exists or use a route to generate it.
+- [ ] **Performance**: Run `php artisan optimize` and cache config in production.
+- [ ] **Images**: Use `spatie/laravel-medialibrary` for responsive images/WebP conversion.
+- [ ] **Trailing Slashes**: Ensure consistent URL structure (Laravel default is no-slash).
 
 ---
 
-## 8. Measurement
+## 4. Auditing
 
-| Metric | Tool |
-|--------|------|
-| Rankings | Search Console, Ahrefs |
-| Traffic | Analytics |
-| Core Web Vitals | PageSpeed Insights |
-| Indexing | Search Console |
-| Backlinks | Ahrefs, Semrush |
+Since we removed the legacy Python script, use these standard tools:
+
+| Tool | Purpose |
+|------|---------|
+| **Lighthouse** (Chrome DevTools) | Performance, Accessibility, SEO score |
+| **Google Search Console** | Indexing status, Core Web Vitals |
+| **Ahrefs / Semrush** | Backlink checking |
+
+> **Note:** We do not include a PHP script for SEO because Google's rendering (JS) is best audited by a browser-based tool like Lighthouse.
 
 ---
-
-> **Remember:** SEO is a long-term game. Quality content + technical excellence + patience = results.
