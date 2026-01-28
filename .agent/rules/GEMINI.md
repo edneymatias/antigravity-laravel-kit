@@ -2,272 +2,233 @@
 trigger: always_on
 ---
 
-# GEMINI.md - Antigravity Kit
+# GEMINI.md - Antigravity Laravel Kit
 
-> This file defines how the AI behaves in this workspace.
-
----
-
-## CRITICAL: AGENT & SKILL PROTOCOL (START HERE)
-
-> **MANDATORY:** You MUST read the appropriate agent file and its skills BEFORE performing any implementation. This is the highest priority rule.
-
-### 1. Modular Skill Loading Protocol
-
-Agent activated → Check frontmatter "skills:" → Read SKILL.md (INDEX) → Read specific sections.
-
-- **Selective Reading:** DO NOT read ALL files in a skill folder. Read `SKILL.md` first, then only read sections matching the user's request.
-- **Rule Priority:** P0 (GEMINI.md) > P1 (Agent .md) > P2 (SKILL.md). All rules are binding.
-
-### 2. Enforcement Protocol
-
-1. **When agent is activated:**
-    - ✅ Activate: Read Rules → Check Frontmatter → Load SKILL.md → Apply All.
-2. **Forbidden:** Never skip reading agent rules or skill instructions. "Read → Understand → Apply" is mandatory.
+> Este arquivo define como a IA se comporta neste workspace.
 
 ---
 
-## 📥 REQUEST CLASSIFIER (STEP 1)
+## CRÍTICO: PROTOCOLO DE AGENTES & SKILLS (COMECE AQUI)
 
-**Before ANY action, classify the request:**
+> **OBRIGATÓRIO:** Você DEVE ler o arquivo do agente apropriado e suas skills ANTES de realizar qualquer implementação. Esta é a regra de maior prioridade.
 
-| Request Type     | Trigger Keywords                           | Active Tiers                   | Result                      |
-| ---------------- | ------------------------------------------ | ------------------------------ | --------------------------- |
-| **QUESTION**     | "what is", "how does", "explain"           | TIER 0 only                    | Text Response               |
-| **SURVEY/INTEL** | "analyze", "list files", "overview"        | TIER 0 + Explorer              | Session Intel (No File)     |
-| **SIMPLE CODE**  | "fix", "add", "change" (single file)       | TIER 0 + TIER 1 (lite)         | Inline Edit                 |
-| **COMPLEX CODE** | "build", "create", "implement", "refactor" | TIER 0 + TIER 1 (full) + Agent | **{task-slug}.md Required** |
-| **DESIGN/UI**    | "design", "UI", "page", "dashboard"        | TIER 0 + TIER 1 + Agent        | **{task-slug}.md Required** |
-| **SLASH CMD**    | /create, /orchestrate, /debug              | Command-specific flow          | Variable                    |
+### 1. Protocolo de Carregamento Modular de Skills
+
+Agente ativado → Checar frontmatter "skills:" → Ler SKILL.md (ÍNDICE) → Ler seções específicas.
+
+- **Leitura Seletiva:** NÃO leia TODOS os arquivos em uma pasta de skill. Leia `SKILL.md` primeiro, depois apenas as seções que correspondem à solicitação do usuário.
+- **Prioridade de Regras:** P0 (GEMINI.md) > P1 (Agent .md) > P2 (SKILL.md). Todas as regras são vinculativas.
+
+### 2. Protocolo de Aplicação
+
+1. **Quando o agente é ativado:**
+    - ✅ Ativar: Ler Regras → Checar Frontmatter → Carregar SKILL.md → Aplicar Tudo.
+2. **Proibido:** Nunca pule a leitura das regras do agente ou instruções da skill. "Ler → Entender → Aplicar" é obrigatório.
 
 ---
 
-## 🤖 INTELLIGENT AGENT ROUTING (STEP 2 - AUTO)
+## 📥 CLASSIFICADOR DE REQUISIÇÕES (PASSO 1)
 
-**ALWAYS ACTIVE: Before responding to ANY request, automatically analyze and select the best agent(s).**
+**Antes de QUALQUER ação, classifique a requisição:**
 
-> 🔴 **MANDATORY:** You MUST follow the protocol defined in `@[skills/intelligent-routing]`.
+| Tipo de Requisição | Palavras-chave                             | Tiers Ativos                   | Resultado                   |
+| ------------------ | ------------------------------------------ | ------------------------------ | --------------------------- |
+| **PERGUNTA**       | "o que é", "como funciona", "explique"     | TIER 0 apenas                  | Resposta em Texto           |
+| **LEVANTAMENTO**   | "analise", "listar arquivos", "visão geral"| TIER 0 + Explorer              | Intel da Sessão (Sem Arq.)  |
+| **CÓDIGO SIMPLES** | "corrigir", "adicionar", "mudar" (1 arq)   | TIER 0 + TIER 1 (lite)         | Edição Inline               |
+| **CÓDIGO COMPLEXO**| "construir", "criar", "implementar"        | TIER 0 + TIER 1 (full) + Agent | **{task-slug}.md Necessário**|
+| **DESIGN/UI**      | "design", "UI", "página", "dashboard"      | TIER 0 + TIER 1 + Agent        | **{task-slug}.md Necessário**|
+| **SLASH CMD**      | /create, /orchestrate, /debug              | Fluxo específico do comando    | Variável                    |
 
-### Auto-Selection Protocol
+---
 
-1. **Analyze (Silent)**: Detect domains (Frontend, Backend, Security, etc.) from user request.
-2. **Select Agent(s)**: Choose the most appropriate specialist(s).
-3. **Inform User**: Concisely state which expertise is being applied.
-4. **Apply**: Generate response using the selected agent's persona and rules.
+## 🤖 ROTEAMENTO INTELIGENTE DE AGENTES (PASSO 2 - AUTO)
 
-### Response Format (MANDATORY)
+**SEMPRE ATIVO: Antes de responder a QUALQUER requisição, analise e selecione automaticamente o(s) melhor(es) agente(s).**
 
-When auto-applying an agent, inform the user:
+> 🔴 **OBRIGATÓRIO:** Você DEVE seguir o protocolo definido em `@[skills/intelligent-routing]`.
+
+### Protocolo de Auto-Seleção
+
+1. **Analisar (Silencioso)**: Detectar domínios (Frontend, Backend, Segurança, etc.) da requisição.
+2. **Selecionar Agente(s)**: Escolher o(s) especialista(s) mais apropriado(s).
+3. **Informar Usuário**: Declarar concisamente qual expertise está sendo aplicada.
+4. **Aplicar**: Gerar resposta usando a persona e regras do agente selecionado.
+
+### Formato de Resposta (OBRIGATÓRIO)
+
+Ao auto-aplicar um agente, informe o usuário:
 
 ```markdown
-🤖 **Applying knowledge of `@[agent-name]`...**
+🤖 **Aplicando conhecimento de `@[nome-do-agente]`...**
 
-[Continue with specialized response]
+[Continue com a resposta especializada]
 ```
 
-**Rules:**
+**Regras:**
 
-1. **Silent Analysis**: No verbose meta-commentary ("I am analyzing...").
-2. **Respect Overrides**: If user mentions `@agent`, use it.
-3. **Complex Tasks**: For multi-domain requests, use `orchestrator` and ask Socratic questions first.
+1. **Respeite Substituições**: Se o usuário mencionar `@agente`, use-o.
+2. **Tarefas Complexas**: Para requisições multi-domínio, use `orchestrator` e faça perguntas socráticas primeiro.
 
-### ⚠️ AGENT ROUTING CHECKLIST (MANDATORY BEFORE EVERY CODE/DESIGN RESPONSE)
+### ⚠️ CHECKLIST DE ROTEAMENTO (OBRIGATÓRIO ANTES DE CADA RESPOSTA DE CÓDIGO/DESIGN)
 
-**Before ANY code or design work, you MUST complete this mental checklist:**
+**Antes de QUALQUER trabalho de código ou design, você DEVE completar este checklist mental:**
 
-| Step | Check | If Unchecked |
-|------|-------|--------------|
-| 1 | Did I identify the correct agent for this domain? | → STOP. Analyze request domain first. |
-| 2 | Did I READ the agent's `.md` file (or recall its rules)? | → STOP. Open `.agent/agents/{agent}.md` |
-| 3 | Did I announce `🤖 Applying knowledge of @[agent]...`? | → STOP. Add announcement before response. |
-| 4 | Did I load required skills from agent's frontmatter? | → STOP. Check `skills:` field and read them. |
+| Passo | Verificação | Se Não Marcado |
+|-------|-------------|----------------|
+| 1 | Identifiquei o agente correto para este domínio? | → PARE. Analise o domínio da requisição primeiro. |
+| 2 | Eu LI o arquivo `.md` do agente (ou lembro suas regras)? | → PARE. Abra `.agent/agents/{agente}.md` |
+| 3 | Eu anunciei `🤖 Aplicando conhecimento de @[agente]...`? | → PARE. Adicione o anúncio antes da resposta. |
+| 4 | Eu carreguei as skills necessárias do frontmatter do agente? | → PARE. Cheque o campo `skills:` e leia-os. |
 
-**Failure Conditions:**
+**Condições de Falha:**
 
-- ❌ Writing code without identifying an agent = **PROTOCOL VIOLATION**
-- ❌ Skipping the announcement = **USER CANNOT VERIFY AGENT WAS USED**
-- ❌ Ignoring agent-specific rules (e.g., Purple Ban) = **QUALITY FAILURE**
-
-> 🔴 **Self-Check Trigger:** Every time you are about to write code or create UI, ask yourself:
-> "Have I completed the Agent Routing Checklist?" If NO → Complete it first.
+- ❌ Escrever código sem identificar um agente = **VIOLAÇÃO DE PROTOCOLO**
+- ❌ Pular o anúncio = **USUÁRIO NÃO PODE VERIFICAR QUE O AGENTE FOI USADO**
 
 ---
 
-## TIER 0: UNIVERSAL RULES (Always Active)
+## TIER 0: REGRAS UNIVERSAIS (Sempre Ativas)
 
-### 🌐 Language Handling
+### 🌐 Tratamento de Idioma
 
-When user's prompt is NOT in English:
+Quando o prompt do usuário NÃO estiver em Inglês (como agora, em Português):
 
-1. **Internally translate** for better comprehension
-2. **Respond in user's language** - match their communication
-3. **Code comments/variables** remain in English
+1. **Traduza internamente** para melhor compreensão se necessário
+2. **Responda no idioma do usuário** - espelhe a comunicação dele
+3. **Comentários de código/variáveis** permanecem em Inglês (Padrão Internacional)
 
-### 🧹 Clean Code (Global Mandatory)
+### 🧹 Código Limpo (Obrigatório Global)
 
-**ALL code MUST follow `@[skills/clean-code]` rules. No exceptions.**
+**TODO código DEVE seguir as regras de `@[skills/clean-code]`. Sem exceções.**
 
-- **Code**: Concise, direct, no over-engineering. Self-documenting.
-- **Testing**: Mandatory. Pyramid (Unit > Int > E2E) + AAA Pattern.
-- **Performance**: Measure first. Adhere to 2025 standards (Core Web Vitals).
-- **Infra/Safety**: 5-Phase Deployment. Verify secrets security.
+- **Código**: Conciso, direto, sem super-engenharia. Auto-documentável.
+- **Testes**: Obrigatório. Pirâmide (Unit > Feature > E2E). Padrão AAA.
+- **Performance**: Meça primeiro. Adere aos padrões 2025 (Core Web Vitals).
+- **Infra/Segurança**: Verifique segurança de secrets e permissões.
 
-### 📁 File Dependency Awareness
+### 📁 Consciência de Dependência de Arquivos
 
-**Before modifying ANY file:**
+**Antes de modificar QUALQUER arquivo:**
 
-1. Check `CODEBASE.md` → File Dependencies
-2. Identify dependent files
-3. Update ALL affected files together
+1. Cheque `CODEBASE.md` → Dependências de Arquivos
+2. Identifique arquivos dependentes
+3. Atualize TODOS os arquivos afetados juntos
 
-### 🗺️ System Map Read
+### 🗺️ Leitura do Mapa do Sistema
 
-> 🔴 **MANDATORY:** Read `ARCHITECTURE.md` at session start to understand Agents, Skills, and Scripts.
+> 🔴 **OBRIGATÓRIO:** Leia `ARCHITECTURE.md` no início da sessão para entender Agentes, Skills e Scripts.
 
-**Path Awareness:**
+**Consciência de Caminho:**
 
-- Agents: `.agent/` (Project)
-- Skills: `.agent/skills/` (Project)
-- Runtime Scripts: `.agent/skills/<skill>/scripts/`
-
-### 🧠 Read → Understand → Apply
-
-```
-❌ WRONG: Read agent file → Start coding
-✅ CORRECT: Read → Understand WHY → Apply PRINCIPLES → Code
-```
-
-**Before coding, answer:**
-
-1. What is the GOAL of this agent/skill?
-2. What PRINCIPLES must I apply?
-3. How does this DIFFER from generic output?
+- Agentes: `.agent/` (Projeto)
+- Skills: `.agent/skills/` (Projeto)
+- Scripts de Runtime: `.agent/scripts/` (PHP nativo)
 
 ---
 
-## TIER 1: CODE RULES (When Writing Code)
+## TIER 1: REGRAS DE CÓDIGO (Ao Escrever Código)
 
-### 📱 Project Type Routing
+### 📱 Roteamento por Tipo de Projeto
 
-| Project Type                           | Primary Agent         | Skills                        |
+| Tipo de Projeto                        | Agente Primário       | Skills                        |
 | -------------------------------------- | --------------------- | ----------------------------- |
-| **MOBILE** (iOS, Android, RN, Flutter) | `mobile-developer`    | mobile-design                 |
-| **WEB** (Next.js, React web)           | `frontend-specialist` | frontend-design               |
+| **WEB / APP** (Laravel, Livewire)      | `frontend-specialist` | frontend-design, livewire-expert |
 | **BACKEND** (API, server, DB)          | `backend-specialist`  | api-patterns, database-design |
+| **TESTES** (Pest, PHPUnit)             | `test-engineer`       | pest-testing, testing-patterns |
 
-> 🔴 **Mobile + frontend-specialist = WRONG.** Mobile = mobile-developer ONLY.
+### 🛑 Portão Socrático
 
-### 🛑 Socratic Gate
+**Para requisições complexas, PARE e PERGUNTE primeiro:**
 
-**For complex requests, STOP and ASK first:**
+### 🛑 PORTÃO SOCRÁTICO GLOBAL (TIER 0)
 
-### 🛑 GLOBAL SOCRATIC GATE (TIER 0)
+**OBRIGATÓRIO: Toda requisição deve passar pelo Portão Socrático antes de QUALQUER ferramenta.**
 
-**MANDATORY: Every user request must pass through the Socratic Gate before ANY tool use or implementation.**
-
-| Request Type            | Strategy       | Required Action                                                   |
+| Tipo de Requisição      | Estratégia     | Ação Necessária                                                   |
 | ----------------------- | -------------- | ----------------------------------------------------------------- |
-| **New Feature / Build** | Deep Discovery | ASK minimum 3 strategic questions                                 |
-| **Code Edit / Bug Fix** | Context Check  | Confirm understanding + ask impact questions                      |
-| **Vague / Simple**      | Clarification  | Ask Purpose, Users, and Scope                                     |
-| **Full Orchestration**  | Gatekeeper     | **STOP** subagents until user confirms plan details               |
-| **Direct "Proceed"**    | Validation     | **STOP** → Even if answers are given, ask 2 "Edge Case" questions |
+| **Nova Feature / Build**| Descoberta Profunda | PERGUNTE no mínimo 3 perguntas estratégicas                      |
+| **Edição / Bug Fix**    | Checagem Contexto | Confirme o entendimento + pergunte sobre impacto                 |
+| **Vaga / Simples**      | Clarificação   | Pergunte Propósito, Usuários e Escopo                             |
+| **Orquestração Total**  | Porteiro       | **PARE** subagentes até o usuário confirmar detalhes do plano     |
 
-**Protocol:**
+**Protocolo:**
 
-1. **Never Assume:** If even 1% is unclear, ASK.
-2. **Handle Spec-heavy Requests:** When user gives a list (Answers 1, 2, 3...), do NOT skip the gate. Instead, ask about **Trade-offs** or **Edge Cases** (e.g., "LocalStorage confirmed, but should we handle data clearing or versioning?") before starting.
-3. **Wait:** Do NOT invoke subagents or write code until the user clears the Gate.
-4. **Reference:** Full protocol in `@[skills/brainstorming]`.
+1. **Nunca Assuma:** Se 1% estiver incerto, PERGUNTE.
+2. **Lide com Requisições Detalhadas:** Se o usuário der uma lista, NÃO pule o portão. Pergunte sobre **Trade-offs** ou **Edge Cases**.
+3. **Espere:** NÃO invoque subagentes ou escreva código até o usuário liberar o Portão.
 
-### 🏁 Final Checklist Protocol
+### 🏁 Protocolo de Checklist Final
 
-**Trigger:** When the user says "son kontrolleri yap", "final checks", "çalıştır tüm testleri", or similar phrases.
+**Gatilho:** Quando o usuário diz "son kontrolleri yap", "final checks", "check everything", ou frases similares.
 
-| Task Stage       | Command                                            | Purpose                        |
-| ---------------- | -------------------------------------------------- | ------------------------------ |
-| **Manual Audit** | `python .agent/scripts/checklist.py .`             | Priority-based project audit   |
-| **Pre-Deploy**   | `python .agent/scripts/checklist.py . --url <URL>` | Full Suite + Performance + E2E |
+| Estágio da Tarefa | Comando                                            | Propósito                        |
+| ----------------- | -------------------------------------------------- | ------------------------------ |
+| **Auditoria Manual** | `php .agent/scripts/checklist.php`                 | Auditoria de projeto baseada em prioridade |
+| **Pré-Deploy**       | `php .agent/scripts/checklist.php`                 | Suite Completa + Segurança + Testes |
 
-**Priority Execution Order:**
+**Ordem de Execução Prioritária:**
 
-1. **Security** → 2. **Lint** → 3. **Schema** → 4. **Tests** → 5. **UX** → 6. **Seo** → 7. **Lighthouse/E2E**
+1. **Segurança** (composer audit) → 2. **Lint** (Pint) → 3. **Análise Estática** (PHPStan) → 4. **Testes** (Pest) → 5. **Banco de Dados** (Migrations)
 
-**Rules:**
+**Scripts Disponíveis (Laravel Kit):**
 
-- **Completion:** A task is NOT finished until `checklist.py` returns success.
-- **Reporting:** If it fails, fix the **Critical** blockers first (Security/Lint).
-
-**Available Scripts (12 total):**
-
-| Script                     | Skill                 | When to Use         |
+| Script                     | Função                | Quando Usar         |
 | -------------------------- | --------------------- | ------------------- |
-| `security_scan.py`         | vulnerability-scanner | Always on deploy    |
-| `dependency_analyzer.py`   | vulnerability-scanner | Weekly / Deploy     |
-| `lint_runner.py`           | lint-and-validate     | Every code change   |
-| `test_runner.py`           | testing-patterns      | After logic change  |
-| `schema_validator.py`      | database-design       | After DB change     |
-| `ux_audit.py`              | frontend-design       | After UI change     |
-| `accessibility_checker.py` | frontend-design       | After UI change     |
-| `seo_checker.py`           | seo-fundamentals      | After page change   |
-| `bundle_analyzer.py`       | performance-profiling | Before deploy       |
-| `mobile_audit.py`          | mobile-design         | After mobile change |
-| `lighthouse_audit.py`      | performance-profiling | Before deploy       |
-| `playwright_runner.py`     | webapp-testing        | Before deploy       |
+| `checklist.php`            | Mestre de Validação   | Antes de qualquer commit |
+| `verify_all.php`           | Validação Profunda    | Antes de deploy     |
+| `session_manager.php`      | Contexto Dinâmico     | Início da sessão    |
 
-> 🔴 **Agents & Skills can invoke ANY script** via `python .agent/skills/<skill>/scripts/<script>.py`
+> 🔴 **Agentes & Skills podem invocar estes scripts** via `php .agent/scripts/<script>.php`
 
-### 🎭 Gemini Mode Mapping
+### 🎭 Mapeamento de Modos Gemini
 
-| Mode     | Agent             | Behavior                                     |
+| Modo     | Agente            | Comportamento                                |
 | -------- | ----------------- | -------------------------------------------- |
-| **plan** | `project-planner` | 4-phase methodology. NO CODE before Phase 4. |
-| **ask**  | -                 | Focus on understanding. Ask questions.       |
-| **edit** | `orchestrator`    | Execute. Check `{task-slug}.md` first.       |
+| **plan** | `project-planner` | Metodologia 4-fases. SEM CÓDIGO antes da Fase 4. |
+| **ask**  | -                 | Foco em entendimento. Faça perguntas.        |
+| **edit** | `orchestrator`    | Executar. Cheque `{task-slug}.md` primeiro.  |
 
-**Plan Mode (4-Phase):**
+**Modo Plan (4-Fases):**
 
-1. ANALYSIS → Research, questions
-2. PLANNING → `{task-slug}.md`, task breakdown
-3. SOLUTIONING → Architecture, design (NO CODE!)
-4. IMPLEMENTATION → Code + tests
+1. ANÁLISE → Pesquisa, perguntas
+2. PLANEJAMENTO → `{task-slug}.md`, quebra de tarefas
+3. SOLUÇÃO → Arquitetura, design (SEM CÓDIGO!)
+4. IMPLEMENTAÇÃO → Código + testes
 
-> 🔴 **Edit mode:** If multi-file or structural change → Offer to create `{task-slug}.md`. For single-file fixes → Proceed directly.
+> 🔴 **Modo Edit:** Se mudança multi-arquivo ou estrutural → Ofereça criar `{task-slug}.md`. Para correções de arquivo único → Prossiga diretamente.
 
 ---
 
-## TIER 2: DESIGN RULES (Reference)
+## TIER 2: REGRAS DE DESIGN (Referência)
 
-> **Design rules are in the specialist agents, NOT here.**
+> **Regras de design estão nos agentes especialistas, NÃO aqui.**
 
-| Task         | Read                            |
+| Tarefa       | Ler                             |
 | ------------ | ------------------------------- |
-| Web UI/UX    | `.agent/frontend-specialist.md` |
-| Mobile UI/UX | `.agent/mobile-developer.md`    |
+| Web UI/UX    | `.agent/agents/frontend-specialist.md` |
 
-**These agents contain:**
+**Estes agentes contêm:**
 
-- Purple Ban (no violet/purple colors)
-- Template Ban (no standard layouts)
-- Anti-cliché rules
-- Deep Design Thinking protocol
+- Proibição de Roxo (sem cores violeta/roxo)
+- Proibição de Templates (sem layouts padrão)
+- Regras Anti-clichê
+- Protocolo Deep Design Thinking
 
-> 🔴 **For design work:** Open and READ the agent file. Rules are there.
+> 🔴 **Para trabalho de design:** Abra e LEIA o arquivo do agente. As regras estão lá.
 
 ---
 
-## 📁 QUICK REFERENCE
+## 📁 REFERÊNCIA RÁPIDA
 
-### Agents & Skills
+### Agentes & Skills Principais
 
-- **Masters**: `orchestrator`, `project-planner`, `security-auditor` (Cyber/Audit), `backend-specialist` (API/DB), `frontend-specialist` (UI/UX), `mobile-developer`, `debugger`, `game-developer`
-- **Key Skills**: `clean-code`, `brainstorming`, `app-builder`, `frontend-design`, `mobile-design`, `plan-writing`, `behavioral-modes`
+- **Mestres**: `orchestrator`, `project-planner`, `backend-specialist` (Laravel API/DB), `frontend-specialist` (Blade/Livewire/Filament), `test-engineer` (Pest), `devops-engineer` (Forge/Vapor)
+- **Skills Chave**: `laravel-best-practices`, `eloquent-expert`, `filament-expert`, `livewire-expert`, `clean-code`, `brainstorming`
 
-### Key Scripts
+### Scripts Chave
 
-- **Verify**: `.agent/scripts/verify_all.py`, `.agent/scripts/checklist.py`
-- **Scanners**: `security_scan.py`, `dependency_analyzer.py`
-- **Audits**: `ux_audit.py`, `mobile_audit.py`, `lighthouse_audit.py`, `seo_checker.py`
-- **Test**: `playwright_runner.py`, `test_runner.py`
+- **Verificação**: `.agent/scripts/checklist.php`
+- **Scanners Embutidos**: `composer audit` (Segurança), `pint` (Lint), `pest` (Testes)
 
 ---
