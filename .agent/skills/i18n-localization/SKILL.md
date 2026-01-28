@@ -4,151 +4,104 @@ description: Internationalization and localization patterns. Detecting hardcoded
 allowed-tools: Read, Glob, Grep
 ---
 
-# i18n & Localization
+# i18n & Localization (Laravel)
 
-> Internationalization (i18n) and Localization (L10n) best practices.
-
----
-
-## 1. Core Concepts
-
-| Term | Meaning |
-|------|---------|
-| **i18n** | Internationalization - making app translatable |
-| **L10n** | Localization - actual translations |
-| **Locale** | Language + Region (en-US, tr-TR) |
-| **RTL** | Right-to-left languages (Arabic, Hebrew) |
+> Best practices for Laravel localization.
 
 ---
 
-## 2. When to Use i18n
+## 1. Laravel Localization Basics
 
-| Project Type | i18n Needed? |
-|--------------|--------------|
-| Public web app | ✅ Yes |
-| SaaS product | ✅ Yes |
-| Internal tool | ⚠️ Maybe |
-| Single-region app | ⚠️ Consider future |
-| Personal project | ❌ Optional |
+Laravel provides two ways to manage translations:
 
----
+### Short Keys (`lang/en/messages.php`)
+Good for large apps with structured text.
+```php
+// lang/en/messages.php
+return [
+    'welcome' => 'Welcome to our application',
+];
 
-## 3. Implementation Patterns
-
-### React (react-i18next)
-
-```tsx
-import { useTranslation } from 'react-i18next';
-
-function Welcome() {
-  const { t } = useTranslation();
-  return <h1>{t('welcome.title')}</h1>;
-}
+// Usage
+echo __('messages.welcome');
 ```
 
-### Next.js (next-intl)
-
-```tsx
-import { useTranslations } from 'next-intl';
-
-export default function Page() {
-  const t = useTranslations('Home');
-  return <h1>{t('title')}</h1>;
-}
-```
-
-### Python (gettext)
-
-```python
-from gettext import gettext as _
-
-print(_("Welcome to our app"))
-```
-
----
-
-## 4. File Structure
-
-```
-locales/
-├── en/
-│   ├── common.json
-│   ├── auth.json
-│   └── errors.json
-├── tr/
-│   ├── common.json
-│   ├── auth.json
-│   └── errors.json
-└── ar/          # RTL
-    └── ...
-```
-
----
-
-## 5. Best Practices
-
-### DO ✅
-
-- Use translation keys, not raw text
-- Namespace translations by feature
-- Support pluralization
-- Handle date/number formats per locale
-- Plan for RTL from the start
-- Use ICU message format for complex strings
-
-### DON'T ❌
-
-- Hardcode strings in components
-- Concatenate translated strings
-- Assume text length (German is 30% longer)
-- Forget about RTL layout
-- Mix languages in same file
-
----
-
-## 6. Common Issues
-
-| Issue | Solution |
-|-------|----------|
-| Missing translation | Fallback to default language |
-| Hardcoded strings | Use linter/checker script |
-| Date format | Use Intl.DateTimeFormat |
-| Number format | Use Intl.NumberFormat |
-| Pluralization | Use ICU message format |
-
----
-
-## 7. RTL Support
-
-```css
-/* CSS Logical Properties */
-.container {
-  margin-inline-start: 1rem;  /* Not margin-left */
-  padding-inline-end: 1rem;   /* Not padding-right */
+### JSON Strings (`lang/en.json`)
+Good for prototyping or smaller apps.
+```json
+// lang/en.json
+{
+    "I love programming.": "Eu amo programar."
 }
 
-[dir="rtl"] .icon {
-  transform: scaleX(-1);
-}
+// Usage
+echo __('I love programming.');
 ```
 
 ---
 
-## 8. Checklist
+## 2. Implementation Patterns
 
-Before shipping:
+### Blade Templates
+```blade
+{{-- Standard --}}
+<h1>{{ __('messages.welcome') }}</h1>
 
-- [ ] All user-facing strings use translation keys
-- [ ] Locale files exist for all supported languages
-- [ ] Date/number formatting uses Intl API
-- [ ] RTL layout tested (if applicable)
-- [ ] Fallback language configured
-- [ ] No hardcoded strings in components
+{{-- Direct Directive --}}
+@lang('auth.failed')
+
+{{-- With Replacements --}}
+<p>{{ __('Welcome, :name', ['name' => $user->name]) }}</p>
+
+{{-- Pluralization --}}
+<p>{{ trans_choice('messages.apples', 10) }}</p>
+```
+
+### Controllers / PHP
+```php
+// Helper
+$message = __('messages.saved');
+
+// Facade
+use Illuminate\Support\Facades\Lang;
+$message = Lang::get('messages.saved');
+```
 
 ---
 
-## Script
+## 3. Recommended Packages
 
-| Script | Purpose | Command |
-|--------|---------|---------|
-| `scripts/i18n_checker.py` | Detect hardcoded strings & missing translations | `python scripts/i18n_checker.py <project_path>` |
+For robust localization management, don't reinvent the wheel.
+
+### `laravel-lang/common`
+Official translations for validation, auth, and pagination messages in 75+ languages.
+
+```bash
+composer require laravel-lang/common --dev
+php artisan lang:update
+```
+
+### `laravel-lang/publisher`
+Easily publish and manage language files.
+
+---
+
+## 4. Helper Script
+
+The kit includes a simple script to detect hardcoded strings in Blade templates.
+
+```bash
+php .agent/skills/i18n-localization/scripts/i18n_checker.php resources/views
+```
+
+This will scan your views and report strings that look like text but aren't wrapped in translation helpers.
+
+---
+
+## 5. Security Checklist
+
+- [ ] Use `__()` for output to ensure it goes through the translation layer (and escaping).
+- [ ] Don't trust user input in translation keys.
+- [ ] Be careful with `{!! !!}` when displaying translations containing HTML.
+
+---
