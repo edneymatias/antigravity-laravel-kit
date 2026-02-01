@@ -48,12 +48,6 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [
-            "Antigravity\\LaravelKit\\Installer::postInstall"
-        ],
-        "post-update-cmd": [
-            "Antigravity\\LaravelKit\\Installer::postUpdate"
-        ],
         "test": "pest"
     },
     "config": {

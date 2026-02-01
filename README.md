@@ -15,19 +15,23 @@
 composer require edneymatias/antigravity-laravel-kit --dev
 ```
 
-The `.agent` folder will be **automatically created** in your project root on install.
-
-### Manual Install (if needed)
+Then, run the installation command:
 
 ```bash
 php artisan antigravity:install
 ```
 
+The `.agent` folder will be created in your project root.
+
 ### Reinstall / Update
+
+To reinstall or update the agent files:
 
 ```bash
 php artisan antigravity:install --force
 ```
+
+
 
 ---
 

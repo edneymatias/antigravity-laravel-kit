@@ -1,0 +1,9 @@
+
+   PASS  Tests\Feature\ServiceProviderTest
+  ✓ it registers the s… 0.14s  
+  ✓ it registers the i… 0.06s  
+  ✓ it has correct service provider boot method
+
+  Tests:    3 passed (3 assertions)
+  Duration: 0.33s
+
