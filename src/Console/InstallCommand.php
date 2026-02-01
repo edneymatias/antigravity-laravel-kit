@@ -49,7 +49,7 @@ class InstallCommand extends Command
         $this->info('');
         $this->info('📁 Created: .agent/');
         $this->info('   ├── agents/       (18 specialist agents)');
-        $this->info('   ├── skills/       (32 skills)');
+        $this->info('   ├── skills/       (33 skills)');
         $this->info('   ├── workflows/    (10 workflows)');
         $this->info('   └── scripts/      (4 PHP scripts)');
         $this->info('');
