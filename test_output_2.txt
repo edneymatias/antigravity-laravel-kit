@@ -1,0 +1,14 @@
+
+   PASS  Tests\Unit\InstallerTest
+  ✓ it has correct pac… 0.01s  
+  ✓ it has agent directory with required structure
+  ✓ it has GEMINI.md file
+
+   PASS  Tests\Feature\ServiceProviderTest
+  ✓ it registers the s… 0.10s  
+  ✓ it registers the i… 0.04s  
+  ✓ it has correct service provider boot method
+
+  Tests:    6 passed (9 assertions)
+  Duration: 0.23s
+

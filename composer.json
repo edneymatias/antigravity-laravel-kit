@@ -1,7 +1,6 @@
 {
     "name": "edneymatias/antigravity-laravel-kit",
     "description": "AI Agent templates for Laravel development - Skills, Agents, and Workflows for enhanced coding assistance",
-    "version": "1.2.0",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -10,6 +9,10 @@
         }
     ],
     "homepage": "https://github.com/edneymatias/antigravity-laravel-kit",
+    "support": {
+        "issues": "https://github.com/edneymatias/antigravity-laravel-kit/issues",
+        "source": "https://github.com/edneymatias/antigravity-laravel-kit"
+    },
     "keywords": [
         "antigravity",
         "ai",
@@ -23,9 +26,18 @@
     "require": {
         "php": "^8.1"
     },
+    "require-dev": {
+        "orchestra/testbench": "^9.0",
+        "pestphp/pest": "^3.0"
+    },
     "autoload": {
         "psr-4": {
             "Antigravity\\LaravelKit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Antigravity\\LaravelKit\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -41,7 +53,14 @@
         ],
         "post-update-cmd": [
             "Antigravity\\LaravelKit\\Installer::postUpdate"
-        ]
+        ],
+        "test": "pest"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "stable",
     "prefer-stable": true

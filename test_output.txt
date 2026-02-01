@@ -1,0 +1,29 @@
+
+   FAIL  Tests\Unit\InstallerTest
+  ✓ it has correct pac… 0.01s  
+  ✓ it has agent directory with required structure
+  ⨯ it has GEMINI.md f… 0.01s  
+
+   PASS  Tests\Feature\ServiceProviderTest
+  ✓ it registers the s… 0.10s  
+  ✓ it registers the i… 0.03s  
+  ✓ it has correct service provider boot method
+  ───────────────────────────  
+   FAILED  Tests\Unit\Insta…   
+  Failed asserting that file "/home/matias/Documentos/dev/antigravity-laravel-kit/GEMINI.md" exists.
+
+  at tests/Unit/InstallerTest.php:26
+     22▕ it('has GEMINI.md file', function () {
+     23▕     $reflection = new ReflectionClass(Installer::class);
+     24▕     $packagePath = dirname($reflection->getFileName(), 2);
+     25▕     
+  ➜  26▕     expect($packagePath . '/GEMINI.md')->toBeFile();
+     27▕ });
+     28▕
+
+  1   tests/Unit/InstallerTest.php:26
+
+
+  Tests:    1 failed, 5 passed (9 assertions)
+  Duration: 0.22s
+
