@@ -5,6 +5,51 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-02-03
+
+### Added
+
+#### Security Skills (4 new)
+- `secure-coding-patterns` - Secure coding for PHP/Laravel (input validation, output encoding, database security)
+- `find-bugs` - Methodology for finding bugs and vulnerabilities in branches/PRs
+- `pre-deploy-security` - Pre-deployment security checklist
+- `api-security` - API security patterns (rate limiting, CORS, Sanctum tokens)
+
+#### Refactoring Skills (3 new)
+- `code-refactoring` - Refactoring techniques (SOLID, code smells, safe patterns)
+- `codebase-cleanup` - Technical debt identification, dead code removal
+- `legacy-modernization` - Strangler fig pattern, incremental upgrades
+
+#### Queue/Jobs Skills (2 new)
+- `laravel-queues` - Jobs, Workers, Horizon, batching, retry
+- `job-patterns` - Saga pattern, compensation, pipelines, state machines
+
+#### AI/LLM Skills (6 new)
+- `openai-client` - OpenAI integration with Laravel HTTP client
+- `anthropic-client` - Anthropic Claude integration
+- `gemini-client` - Google Gemini integration
+- `pgvector-search` - PostgreSQL vector search with pgvector
+- `document-chunking` - Document chunking strategies for RAG
+- `prompt-templates` - Prompt template patterns (few-shot, chains)
+
+#### New Agents (2 new)
+- `code-reviewer` - Code review specialist (security, quality, performance)
+- `ai-engineer` - AI/LLM integration specialist (OpenAI, Anthropic, Gemini)
+
+#### New Workflow
+- `/review` - Code review workflow orchestrated by code-reviewer agent
+
+### Changed
+- Updated ARCHITECTURE.md with new statistics
+- Updated README.md with accurate counts
+
+### Statistics
+- Skills: 33 → **48** (+15)
+- Agents: 18 → **20** (+2)
+- Workflows: 10 → **11** (+1)
+
+---
+
 ## [1.0.0] - 2026-02-01
 
 ### Official Release
