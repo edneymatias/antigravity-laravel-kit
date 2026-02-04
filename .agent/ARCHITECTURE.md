@@ -8,11 +8,11 @@
 
 Antigravity Laravel Kit is a modular system for AI-assisted Laravel development:
 
-- **18 Specialist Agents** - Role-based AI personas for Laravel
-- **33 Skills** - Domain-specific knowledge modules (Laravel-focused)
-- **10 Workflows** - Slash command procedures
+- **20 Specialist Agents** - Role-based AI personas for Laravel
+- **48 Skills** - Domain-specific knowledge modules (Laravel-focused)
+- **11 Workflows** - Slash command procedures
 
-Based on the original [Antigravity Kit](https://github.com/...) adapted for the Laravel ecosystem using context from [Laravel Boost](https://laravel.com/docs/boost).
+Based on the original [Antigravity Kit](https://github.com/vudovn/antigravity-kit) adapted for the Laravel ecosystem.
 
 ---
 
@@ -21,16 +21,16 @@ Based on the original [Antigravity Kit](https://github.com/...) adapted for the 
 ```plaintext
 .agent/
 ├── ARCHITECTURE.md          # This file
-├── agents/                  # 18 Specialist Agents
-├── skills/                  # 33 Skills (adapting...)
-├── workflows/               # 10 Slash Commands
+├── agents/                  # 20 Specialist Agents
+├── skills/                  # 48 Skills
+├── workflows/               # 11 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Validation Scripts (PHP)
 ```
 
 ---
 
-## 🤖 Agents (18 Active, 2 Deferred)
+## 🤖 Agents (20 Active)
 
 Specialist AI personas adapted for Laravel development.
 
@@ -46,22 +46,20 @@ Specialist AI personas adapted for Laravel development.
 | `performance-optimizer` | Performance | N+1, Caching, Queries |
 | `seo-specialist` | SEO | Meta tags, Sitemaps |
 | `documentation-writer` | Documentation | Scribe, README |
-| `project-planner` | Planning | Agnóstico |
-| `orchestrator` | Coordination | Agnóstico |
-| `product-manager` | Requirements | Agnóstico |
-| `product-owner` | Strategy | Agnóstico |
-| `explorer-agent` | Codebase analysis | Agnóstico |
-| `code-archaeologist` | Refactoring | Agnóstico |
-| `qa-automation-engineer` | QA | Agnóstico |
+| `project-planner` | Planning | Agnostic |
+| `orchestrator` | Coordination | Agnostic |
+| `product-manager` | Requirements | Agnostic |
+| `product-owner` | Strategy | Agnostic |
+| `explorer-agent` | Codebase analysis | Agnostic |
+| `code-archaeologist` | Refactoring | Agnostic |
+| `qa-automation-engineer` | QA | Agnostic |
 | `mobile-developer` | Mobile apps | RN/Flutter + Laravel API |
-
-### Deferred Agents
-- `game-developer` - Niche use case
-- `penetration-tester` - Requires specialized tools
+| `code-reviewer` | Code review | Security, quality, performance |
+| `ai-engineer` | AI/LLM | OpenAI, Anthropic, Gemini, RAG |
 
 ---
 
-## 🔄 Workflows (10 Active, 1 Deferred)
+## 🔄 Workflows (11 Active)
 
 Slash command procedures. Invoke with `/command`.
 
@@ -74,59 +72,96 @@ Slash command procedures. Invoke with `/command`.
 | `/preview` | Start dev server | Adapted |
 | `/enhance` | Improve existing code | Adapted |
 | `/status` | Check app health | Adapted |
+| `/review` | Code review (security, quality) | **New v1.1** |
 | `/brainstorm` | Socratic discovery | Kept |
 | `/plan` | Task breakdown | Kept |
 | `/orchestrate` | Multi-agent coordination | Kept |
 
-### Deferred Workflows
-- `/ui-ux-pro-max` - Advanced design workflow (future)
-
 ---
 
-## 🧩 Skills (33 Active, 3 Deferred)
+## 🧩 Skills (48 Active)
 
-Modular knowledge domains. Skills are being adapted from the original kit.
+Modular knowledge domains organized by category.
 
 ### Laravel Core
 - `laravel-best-practices` - Service Providers, DI, Facades
 - `eloquent-expert` - Models, Relationships, Factories
-- `artisan-mastery` - Artisan commands
-- `laravel-api-patterns` - API Resources, Sanctum
+- `filament-expert` - Filament 4 admin panels
+- `laravel-queues` - Jobs, Workers, Horizon
 
 ### Laravel Frontend
 - `livewire-expert` - Livewire 3 components
 - `blade-mastery` - Blade components, slots
-- `inertia-expert` - Inertia + React/Vue
-- `tailwind-laravel` - Tailwind with Laravel
+- `tailwind-patterns` - Tailwind CSS v4
 
 ### Testing
 - `pest-testing` - Pest syntax, assertions
 - `tdd-workflow` - TDD methodology
+- `testing-patterns` - Unit, integration, mocking
 
-### Security & DevOps
-- `laravel-security` - Sanctum, Policies
+### Security (v1.1)
+- `secure-coding-patterns` - Input validation, output encoding
+- `find-bugs` - Bug hunting methodology
+- `pre-deploy-security` - Pre-deployment checklist
+- `api-security` - Rate limiting, CORS, Sanctum
+- `laravel-security` - Policies, Gates, built-in protections
+- `vulnerability-scanner` - OWASP, supply chain security
+
+### Queues/Jobs (v1.1)
+- `laravel-queues` - Jobs, Workers, Horizon, batching
+- `job-patterns` - Saga, compensation, pipelines
+
+### AI/LLM Integration (v1.1)
+- `openai-client` - OpenAI with Laravel HTTP client
+- `anthropic-client` - Anthropic Claude integration
+- `gemini-client` - Google Gemini integration
+- `pgvector-search` - PostgreSQL vector search
+- `document-chunking` - Chunking strategies for RAG
+- `prompt-templates` - Prompt engineering patterns
+
+### Refactoring (v1.1)
+- `code-refactoring` - SOLID, code smells, safe patterns
+- `codebase-cleanup` - Tech debt, dead code removal
+- `legacy-modernization` - Strangler fig, upgrades
+
+### DevOps
 - `laravel-deployment` - Forge, Vapor
 - `laravel-sail` - Docker development
+- `deployment-procedures` - Safe deployment workflows
 
-### Preserved from Original
+### Architecture & Planning
+- `architecture` - System design decisions
+- `api-patterns` - REST, response formats
+- `database-design` - Schema, indexing
+- `brainstorming` - Socratic questioning
+- `plan-writing` - Task breakdown
+
+### General Development
 - `clean-code` - Coding standards
 - `frontend-design` - UI/UX principles
-- `architecture` - System design
-- `brainstorming` - Socratic questioning
+- `documentation-templates` - README, API docs
 - And more...
 
 ---
 
 ## 📊 Statistics
 
-| Metric | Value |
-| ------ | ----- |
-| **Active Agents** | 18 |
-| **Deferred Agents** | 2 |
-| **Active Workflows** | 10 |
-| **Deferred Workflows** | 1 |
-| **Skills** | 33 active, 3 deferred |
-| **Focus** | Laravel/PHP development |
+| Metric | v1.0 | v1.1 |
+| ------ | ---- | ---- |
+| **Agents** | 18 | **20** |
+| **Skills** | 33 | **48** |
+| **Workflows** | 10 | **11** |
+| **Focus** | Laravel/PHP | Laravel/PHP + AI |
+
+### What's New in v1.1
+
+| Category | New Skills | New Agents |
+|----------|------------|------------|
+| Security | 4 | 1 (`code-reviewer`) |
+| Queues | 2 | - |
+| AI/LLM | 6 | 1 (`ai-engineer`) |
+| Refactoring | 3 | - |
+| **Total** | **+15** | **+2** |
 
 ---
 
@@ -134,11 +169,14 @@ Modular knowledge domains. Skills are being adapted from the original kit.
 
 | Need | Agent | Skills |
 | ---- | ----- | ------ |
-| Laravel API | `backend-specialist` | eloquent-expert, laravel-api-patterns |
+| Laravel API | `backend-specialist` | eloquent-expert, api-patterns |
 | Livewire UI | `frontend-specialist` | livewire-expert, blade-mastery |
-| Database | `database-architect` | eloquent-expert |
+| Database | `database-architect` | eloquent-expert, database-design |
 | Testing | `test-engineer` | pest-testing, tdd-workflow |
-| Security | `security-auditor` | laravel-security |
+| Security | `security-auditor` | secure-coding-patterns, api-security |
+| Code Review | `code-reviewer` | find-bugs, pre-deploy-security |
+| AI Features | `ai-engineer` | openai-client, pgvector-search |
+| Queues | `backend-specialist` | laravel-queues, job-patterns |
 | Deploy | `devops-engineer` | laravel-deployment |
 | Debug | `debugger` | systematic-debugging |
 | Plan | `project-planner` | brainstorming, plan-writing |
@@ -147,14 +185,15 @@ Modular knowledge domains. Skills are being adapted from the original kit.
 
 ## 🛠️ Scripts
 
-Scripts PHP nativos para automação e validação.
+Native PHP scripts for automation and validation.
 
-| Script | Descrição | Equivalente ao Original |
-| ------ | --------- | ----------------------- |
-| `checklist.php` | Validação completa (Security, Lint, Test, DB) | Consolida `security_scan`, `lint_runner`, `test_runner` |
-| `verify_all.php` | Verificação pré-deploy | `verify_all.py` |
-| `session_manager.php` | Gerenciamento de contexto da sessão | `session_manager.py` |
-| `auto_preview.php` | Preview server Automator | `auto_preview.py` |
+| Script | Description |
+| ------ | ----------- |
+| `checklist.php` | Full validation (Security, Lint, Test, DB) |
+| `verify_all.php` | Pre-deploy verification |
+| `session_manager.php` | Session context management |
+| `auto_preview.php` | Automatic preview server |
+| `i18n_checker.php` | Hardcoded string scanner |
 
 ---
 

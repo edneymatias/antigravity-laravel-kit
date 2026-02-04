@@ -35,7 +35,7 @@ php artisan antigravity:install --force
 
 ---
 
-### Agents
+### Agents (20)
 
 | Agent | Focus |
 |-------|-------|
@@ -46,11 +46,11 @@ php artisan antigravity:install --force
 | `security-auditor` | Sanctum, Policies, Gates |
 | `devops-engineer` | Forge, Vapor, Sail |
 | `debugger` | Telescope, Debugbar, Logs |
-| `project-planner` | Task breakdown, planning |
-| `orchestrator` | Multi-agent coordination |
-| And 9 more... | See `.agent/ARCHITECTURE.md` |
+| `code-reviewer` | Security, quality, performance reviews |
+| `ai-engineer` | OpenAI, Anthropic, Gemini, RAG |
+| And 11 more... | See `.agent/ARCHITECTURE.md` |
 
-### Workflows
+### Workflows (11)
 
 | Command | Description |
 |---------|-------------|
@@ -59,16 +59,19 @@ php artisan antigravity:install --force
 | `/deploy` | Deploy with Forge or manually |
 | `/debug` | Debug with Telescope/Debugbar |
 | `/preview` | Start dev server |
+| `/review` | Code review (security, quality) |
 | `/brainstorm` | Socratic discovery |
 | `/plan` | Task breakdown |
 
-### Skills
+### Skills (48)
 
-- **Laravel Core**: laravel-best-practices, eloquent-expert, artisan-mastery
+- **Laravel Core**: laravel-best-practices, eloquent-expert, filament-expert
 - **Frontend**: livewire-expert, blade-mastery, tailwind-patterns
-- **Testing**: pest-testing, tdd-workflow
-- **DevOps**: laravel-deployment, laravel-sail
-- **And more...**: 32 skills total
+- **Testing**: pest-testing, tdd-workflow, testing-patterns
+- **Security**: secure-coding-patterns, api-security, pre-deploy-security
+- **Queues/Jobs**: laravel-queues, job-patterns
+- **AI/LLM**: openai-client, anthropic-client, gemini-client, pgvector-search
+- **Refactoring**: code-refactoring, codebase-cleanup, legacy-modernization
 
 ---
 
@@ -85,9 +88,9 @@ php artisan antigravity:install --force
 ```
 .agent/
 ├── ARCHITECTURE.md     # System overview
-├── agents/             # 18 specialist agents
-├── skills/             # 32 knowledge modules
-├── workflows/          # 10 slash commands
+├── agents/             # 20 specialist agents
+├── skills/             # 48 knowledge modules
+├── workflows/          # 11 slash commands
 ├── rules/              # Global rules
 └── scripts/            # Validation scripts
 ```
