@@ -169,15 +169,7 @@ class GeminiClient
             return;
         }
         
-        $error = $response->json('error');
-        
-        match ($response->status()) {
-            400 => throw new \Exception('Bad request: ' . ($error['message'] ?? '')),
-            401, 403 => throw new \Exception('Invalid API key or unauthorized'),
-            429 => throw new \Exception('Rate limit exceeded'),
-            500, 502, 503 => throw new \Exception('Gemini server error'),
-            default => throw new \Exception('Gemini error: ' . ($error['message'] ?? 'Unknown')),
-        };
+        $response->throw();
     }
 }
 ```

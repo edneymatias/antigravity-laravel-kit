@@ -151,11 +151,8 @@ class AnthropicClient
         $error = $response->json('error');
         
         match ($response->status()) {
-            401 => throw new \Exception('Invalid API key'),
-            429 => throw new \Exception('Rate limit exceeded'),
-            400 => throw new \Exception('Bad request: ' . ($error['message'] ?? '')),
-            500, 502, 503 => throw new \Exception('Anthropic server error'),
-            default => throw new \Exception('Anthropic error: ' . ($error['message'] ?? 'Unknown')),
+            401 => throw new \Illuminate\Auth\AuthenticationException('Invalid API key'),
+            default => throw new \Illuminate\Http\Client\RequestException($response),
         };
     }
 }

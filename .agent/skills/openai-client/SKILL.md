@@ -144,14 +144,7 @@ class OpenAIClient
             return;
         }
         
-        $error = $response->json('error');
-        
-        match ($response->status()) {
-            401 => throw new \Exception('Invalid API key'),
-            429 => throw new \Exception('Rate limit exceeded: ' . ($error['message'] ?? '')),
-            500, 502, 503 => throw new \Exception('OpenAI server error'),
-            default => throw new \Exception('OpenAI error: ' . ($error['message'] ?? 'Unknown')),
-        };
+        $response->throw();
     }
 }
 ```

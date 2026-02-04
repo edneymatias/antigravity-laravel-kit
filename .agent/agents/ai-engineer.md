@@ -108,6 +108,10 @@ $response = $openai->prompt(
 ```php
 class RAGService
 {
+    public function __construct(private OpenAIClient $openai)
+    {
+    }
+
     public function query(string $question): string
     {
         // 1. Search similar documents

@@ -46,13 +46,13 @@ Specialist AI personas adapted for Laravel development.
 | `performance-optimizer` | Performance | N+1, Caching, Queries |
 | `seo-specialist` | SEO | Meta tags, Sitemaps |
 | `documentation-writer` | Documentation | Scribe, README |
-| `project-planner` | Planning | Agnóstico |
-| `orchestrator` | Coordination | Agnóstico |
-| `product-manager` | Requirements | Agnóstico |
-| `product-owner` | Strategy | Agnóstico |
-| `explorer-agent` | Codebase analysis | Agnóstico |
-| `code-archaeologist` | Refactoring | Agnóstico |
-| `qa-automation-engineer` | QA | Agnóstico |
+| `project-planner` | Planning | Agnostic |
+| `orchestrator` | Coordination | Agnostic |
+| `product-manager` | Requirements | Agnostic |
+| `product-owner` | Strategy | Agnostic |
+| `explorer-agent` | Codebase analysis | Agnostic |
+| `code-archaeologist` | Refactoring | Agnostic |
+| `qa-automation-engineer` | QA | Agnostic |
 | `mobile-developer` | Mobile apps | RN/Flutter + Laravel API |
 | `code-reviewer` | Code review | Security, quality, performance |
 | `ai-engineer` | AI/LLM | OpenAI, Anthropic, Gemini, RAG |
@@ -185,15 +185,15 @@ Modular knowledge domains organized by category.
 
 ## 🛠️ Scripts
 
-Scripts PHP nativos para automação e validação.
+Native PHP scripts for automation and validation.
 
-| Script | Descrição |
-| ------ | --------- |
-| `checklist.php` | Validação completa (Security, Lint, Test, DB) |
-| `verify_all.php` | Verificação pré-deploy |
-| `session_manager.php` | Gerenciamento de contexto da sessão |
-| `auto_preview.php` | Preview server automático |
-| `i18n_checker.php` | Scanner de strings hardcoded |
+| Script | Description |
+| ------ | ----------- |
+| `checklist.php` | Full validation (Security, Lint, Test, DB) |
+| `verify_all.php` | Pre-deploy verification |
+| `session_manager.php` | Session context management |
+| `auto_preview.php` | Automatic preview server |
+| `i18n_checker.php` | Hardcoded string scanner |
 
 ---
 

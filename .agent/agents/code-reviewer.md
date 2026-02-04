@@ -118,9 +118,9 @@ Check:
 **Risk:** What could happen
 **Fix:** How to fix it
 
-\`\`\`php
+```php
 // Suggested fix
-\`\`\`
+```
 ```
 
 ---

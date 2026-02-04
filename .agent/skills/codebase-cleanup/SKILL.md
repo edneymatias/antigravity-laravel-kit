@@ -63,7 +63,7 @@ grep -r "route(" resources/views/ --include="*.blade.php"
 // Check for config keys never accessed
 // Review config files for dead entries
 php artisan config:clear
-php artisan config:show
+php artisan about
 ```
 
 ### Remove Unused Dependencies
