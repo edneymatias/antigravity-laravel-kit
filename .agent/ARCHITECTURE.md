@@ -9,7 +9,7 @@
 Antigravity Laravel Kit is a modular system for AI-assisted Laravel development:
 
 - **20 Specialist Agents** - Role-based AI personas for Laravel
-- **48 Skills** - Domain-specific knowledge modules (Laravel-focused)
+- **49 Skills** - Domain-specific knowledge modules (Laravel-focused)
 - **11 Workflows** - Slash command procedures
 
 Based on the original [Antigravity Kit](https://github.com/vudovn/antigravity-kit) adapted for the Laravel ecosystem.
@@ -22,7 +22,7 @@ Based on the original [Antigravity Kit](https://github.com/vudovn/antigravity-ki
 .agent/
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 20 Specialist Agents
-├── skills/                  # 48 Skills
+├── skills/                  # 49 Skills
 ├── workflows/               # 11 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Validation Scripts (PHP)
@@ -79,7 +79,7 @@ Slash command procedures. Invoke with `/command`.
 
 ---
 
-## 🧩 Skills (48 Active)
+## 🧩 Skills (49 Active)
 
 Modular knowledge domains organized by category.
 
@@ -87,6 +87,7 @@ Modular knowledge domains organized by category.
 - `laravel-best-practices` - Service Providers, DI, Facades
 - `eloquent-expert` - Models, Relationships, Factories
 - `filament-expert` - Filament 4 admin panels
+- `error-handling-mastery` - Renderable exceptions, traits, UX guidelines
 - `laravel-queues` - Jobs, Workers, Horizon
 
 ### Laravel Frontend
@@ -146,10 +147,10 @@ Modular knowledge domains organized by category.
 
 ## 📊 Statistics
 
-| Metric | v1.0 | v1.1 |
+| Metric | v1.1 | v1.2 |
 | ------ | ---- | ---- |
 | **Agents** | 18 | **20** |
-| **Skills** | 33 | **48** |
+| **Skills** | 48 | **49** |
 | **Workflows** | 10 | **11** |
 | **Focus** | Laravel/PHP | Laravel/PHP + AI |
 
