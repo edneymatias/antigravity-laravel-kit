@@ -172,3 +172,66 @@ $user = User::firstOrCreate(
     ['name' => $name]
 );
 ```
+
+## Critical Rules
+
+### Avoid DB:: Facade
+```php
+// ❌ Avoid raw DB facade
+DB::table('posts')->where('user_id', $userId)->get();
+
+// ✅ Use Model::query()
+Post::query()->where('user_id', $userId)->get();
+```
+
+> Use `Model::query()` for type hints and IDE support. Only use `DB::` for complex raw SQL that Eloquent can't express.
+
+## Laravel 12 Patterns
+
+### Casts Method (Preferred over $casts)
+```php
+// ✅ Modern approach (Laravel 12+)
+protected function casts(): array
+{
+    return [
+        'metadata' => 'array',
+        'is_active' => 'boolean',
+        'published_at' => 'datetime',
+        'status' => PostStatus::class,
+    ];
+}
+
+// ⚠️ Still works but less flexible
+protected $casts = ['status' => PostStatus::class];
+```
+
+### Eager Loading with Limit
+```php
+// ✅ Laravel 12 native - no packages needed
+$users = User::with(['posts' => function ($query) {
+    $query->latest()->limit(5);
+}])->get();
+```
+
+### Modern Accessors/Mutators
+```php
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+// ✅ Modern syntax
+protected function fullName(): Attribute
+{
+    return Attribute::make(
+        get: fn () => "{$this->first_name} {$this->last_name}",
+        set: fn (string $value) => [
+            'first_name' => explode(' ', $value)[0],
+            'last_name' => explode(' ', $value)[1] ?? '',
+        ],
+    );
+}
+
+// ❌ Legacy syntax (still works)
+public function getFullNameAttribute(): string
+{
+    return "{$this->first_name} {$this->last_name}";
+}
+```

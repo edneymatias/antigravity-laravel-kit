@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-02-05
+
+### Added
+
+#### CLI & Debugging Skills (2 new)
+- `artisan-mastery` - PHP Artisan CLI patterns (make commands, flags, AI-friendly usage)
+- `tinker-usage` - Laravel Tinker best practices (safe debugging, snippets, alternatives)
+
+### Changed
+
+#### Enhanced Skills (2 updated)
+- `eloquent-expert` - Added Laravel 12 patterns:
+  - Prohibition of `DB::` facade (use `Model::query()`)
+  - `casts()` method (preferred over `$casts` property)
+  - Eager loading with native `limit()` (Laravel 12)
+  - Modern accessors/mutators (`Attribute::make()`)
+
+- `laravel-best-practices` - Added:
+  - `--no-interaction` flag requirement for AI agents
+  - Laravel 11/12 vs Laravel 10 structure detection
+
+### Statistics
+- Skills: 48 → **50** (+2)
+- Agents: 20 (unchanged)
+- Workflows: 11 (unchanged)
+
+---
+
 ## [1.1.0] - 2026-02-03
 
 ### Added

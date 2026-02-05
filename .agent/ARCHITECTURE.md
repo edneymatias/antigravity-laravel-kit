@@ -9,7 +9,7 @@
 Antigravity Laravel Kit is a modular system for AI-assisted Laravel development:
 
 - **20 Specialist Agents** - Role-based AI personas for Laravel
-- **48 Skills** - Domain-specific knowledge modules (Laravel-focused)
+- **50 Skills** - Domain-specific knowledge modules (Laravel-focused)
 - **11 Workflows** - Slash command procedures
 
 Based on the original [Antigravity Kit](https://github.com/vudovn/antigravity-kit) adapted for the Laravel ecosystem.
@@ -22,7 +22,7 @@ Based on the original [Antigravity Kit](https://github.com/vudovn/antigravity-ki
 .agent/
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 20 Specialist Agents
-├── skills/                  # 48 Skills
+├── skills/                  # 50 Skills
 ├── workflows/               # 11 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Validation Scripts (PHP)
@@ -79,15 +79,19 @@ Slash command procedures. Invoke with `/command`.
 
 ---
 
-## 🧩 Skills (48 Active)
+## 🧩 Skills (50 Active)
 
 Modular knowledge domains organized by category.
 
 ### Laravel Core
-- `laravel-best-practices` - Service Providers, DI, Facades
-- `eloquent-expert` - Models, Relationships, Factories
+- `laravel-best-practices` - Service Providers, DI, Facades, L11/12 structure
+- `eloquent-expert` - Models, Relationships, Factories, L12 patterns
 - `filament-expert` - Filament 4 admin panels
 - `laravel-queues` - Jobs, Workers, Horizon
+
+### CLI & Debugging (v1.2)
+- `artisan-mastery` - Make commands, flags, AI-friendly usage
+- `tinker-usage` - Safe debugging, snippets, alternatives
 
 ### Laravel Frontend
 - `livewire-expert` - Livewire 3 components
@@ -146,22 +150,20 @@ Modular knowledge domains organized by category.
 
 ## 📊 Statistics
 
-| Metric | v1.0 | v1.1 |
-| ------ | ---- | ---- |
-| **Agents** | 18 | **20** |
-| **Skills** | 33 | **48** |
-| **Workflows** | 10 | **11** |
-| **Focus** | Laravel/PHP | Laravel/PHP + AI |
+| Metric | v1.0 | v1.1 | v1.2 |
+| ------ | ---- | ---- | ---- |
+| **Agents** | 18 | 20 | **20** |
+| **Skills** | 33 | 48 | **50** |
+| **Workflows** | 10 | 11 | **11** |
+| **Focus** | Laravel/PHP | Laravel/PHP + AI | Laravel 12 + CLI |
 
-### What's New in v1.1
+### What's New in v1.2
 
-| Category | New Skills | New Agents |
-|----------|------------|------------|
-| Security | 4 | 1 (`code-reviewer`) |
-| Queues | 2 | - |
-| AI/LLM | 6 | 1 (`ai-engineer`) |
-| Refactoring | 3 | - |
-| **Total** | **+15** | **+2** |
+| Category | New Skills | Enhanced |
+|----------|------------|----------|
+| CLI & Debug | 2 (`artisan-mastery`, `tinker-usage`) | - |
+| Laravel Core | - | 2 (`eloquent-expert`, `laravel-best-practices`) |
+| **Total** | **+2** | **2 enhanced** |
 
 ---
 
