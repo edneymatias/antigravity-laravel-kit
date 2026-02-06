@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.0] - 2026-02-05
+## [1.3.0] - 2026-02-05
 
 ### Added
 
@@ -27,10 +27,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Laravel 11/12 vs Laravel 10 structure detection
 
 ### Statistics
-- Skills: 48 → **50** (+2)
+- Skills: 49 → **51** (+2)
 - Agents: 20 (unchanged)
 - Workflows: 11 (unchanged)
 
+## [1.2.0] - 2026-02-04
+
+### Added
+
+#### Core Skills
+- `error-handling-mastery` - Laravel-native error handling patterns (Renderable Exceptions, Livewire Traits, UX Guidelines)
+
+### Statistics
+- Skills: 48 → **49** (+1)
 ---
 
 ## [1.1.0] - 2026-02-03

@@ -9,7 +9,7 @@
 Antigravity Laravel Kit is a modular system for AI-assisted Laravel development:
 
 - **20 Specialist Agents** - Role-based AI personas for Laravel
-- **50 Skills** - Domain-specific knowledge modules (Laravel-focused)
+- **51 Skills** - Domain-specific knowledge modules (Laravel-focused)
 - **11 Workflows** - Slash command procedures
 
 Based on the original [Antigravity Kit](https://github.com/vudovn/antigravity-kit) adapted for the Laravel ecosystem.
@@ -22,7 +22,7 @@ Based on the original [Antigravity Kit](https://github.com/vudovn/antigravity-ki
 .agent/
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 20 Specialist Agents
-├── skills/                  # 50 Skills
+├── skills/                  # 51 Skills
 ├── workflows/               # 11 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Validation Scripts (PHP)
@@ -79,7 +79,7 @@ Slash command procedures. Invoke with `/command`.
 
 ---
 
-## 🧩 Skills (50 Active)
+## 🧩 Skills (51 Active)
 
 Modular knowledge domains organized by category.
 
@@ -87,6 +87,7 @@ Modular knowledge domains organized by category.
 - `laravel-best-practices` - Service Providers, DI, Facades, L11/12 structure
 - `eloquent-expert` - Models, Relationships, Factories, L12 patterns
 - `filament-expert` - Filament 4 admin panels
+- `error-handling-mastery` - Renderable exceptions, traits, UX guidelines
 - `laravel-queues` - Jobs, Workers, Horizon
 
 ### CLI & Debugging (v1.2)
@@ -150,12 +151,12 @@ Modular knowledge domains organized by category.
 
 ## 📊 Statistics
 
-| Metric | v1.0 | v1.1 | v1.2 |
+| Metric | v1.1 | v1.2 | v1.3 |
 | ------ | ---- | ---- | ---- |
-| **Agents** | 18 | 20 | **20** |
-| **Skills** | 33 | 48 | **50** |
-| **Workflows** | 10 | 11 | **11** |
-| **Focus** | Laravel/PHP | Laravel/PHP + AI | Laravel 12 + CLI |
+| **Agents** | 20 | 20 | **20** |
+| **Skills** | 48 | 49 | **51** |
+| **Workflows** | 11 | 11 | **11** |
+| **Focus** | +AI | +Error Handling | +CLI & Debug |
 
 ### What's New in v1.2
 

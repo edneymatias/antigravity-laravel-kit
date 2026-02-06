@@ -63,10 +63,10 @@ php artisan antigravity:install --force
 | `/brainstorm` | Socratic discovery |
 | `/plan` | Task breakdown |
 
-### Skills (50)
+### Skills (51)
 
-- **Laravel Core**: laravel-best-practices, eloquent-expert, filament-expert
-- **CLI & Debug**: artisan-mastery, tinker-usage *(v1.2)*
+- **Laravel Core**: laravel-best-practices, eloquent-expert, filament-expert, error-handling-mastery
+- **CLI & Debug**: artisan-mastery, tinker-usage *(v1.3)*
 - **Frontend**: livewire-expert, blade-mastery, tailwind-patterns
 - **Testing**: pest-testing, tdd-workflow, testing-patterns
 - **Security**: secure-coding-patterns, api-security, pre-deploy-security
