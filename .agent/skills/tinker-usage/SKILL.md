@@ -64,8 +64,7 @@ dd(DB::getQueryLog());
 (new Post)->getCasts();
 
 // Get relationships
-(new ReflectionClass(Post::class))
-    ->getMethods()
+collect((new ReflectionClass(Post::class))->getMethods())
     ->filter(fn($m) => $m->class === Post::class)
     ->pluck('name');
 ```

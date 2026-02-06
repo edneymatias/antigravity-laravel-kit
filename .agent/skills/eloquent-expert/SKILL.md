@@ -223,8 +223,8 @@ protected function fullName(): Attribute
     return Attribute::make(
         get: fn () => "{$this->first_name} {$this->last_name}",
         set: fn (string $value) => [
-            'first_name' => explode(' ', $value)[0],
-            'last_name' => explode(' ', $value)[1] ?? '',
+            'first_name' => ($parts = explode(' ', $value, 2))[0],
+            'last_name' => $parts[1] ?? '',
         ],
     );
 }

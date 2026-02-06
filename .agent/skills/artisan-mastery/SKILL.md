@@ -64,9 +64,7 @@ php artisan help make:model
 ```php
 class PublishPosts extends Command
 {
-    protected $signature = 'posts:publish 
-        {--dry-run : Preview without publishing}
-        {--limit=10 : Max posts to publish}';
+    protected $signature = 'posts:publish {--dry-run : Preview without publishing} {--limit=10 : Max posts to publish}';
     
     protected $description = 'Publish scheduled posts';
 
