@@ -1,2 +1,0 @@
-No syntax errors detected in tests/Unit/InstallerTest.php
-No syntax errors detected in tests/Feature/ServiceProviderTest.php
