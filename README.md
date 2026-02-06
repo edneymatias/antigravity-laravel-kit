@@ -63,9 +63,10 @@ php artisan antigravity:install --force
 | `/brainstorm` | Socratic discovery |
 | `/plan` | Task breakdown |
 
-### Skills (49)
+### Skills (51)
 
 - **Laravel Core**: laravel-best-practices, eloquent-expert, filament-expert, error-handling-mastery
+- **CLI & Debug**: artisan-mastery, tinker-usage *(v1.3)*
 - **Frontend**: livewire-expert, blade-mastery, tailwind-patterns
 - **Testing**: pest-testing, tdd-workflow, testing-patterns
 - **Security**: secure-coding-patterns, api-security, pre-deploy-security
@@ -89,7 +90,7 @@ php artisan antigravity:install --force
 .agent/
 ├── ARCHITECTURE.md     # System overview
 ├── agents/             # 20 specialist agents
-├── skills/             # 48 knowledge modules
+├── skills/             # 50 knowledge modules
 ├── workflows/          # 11 slash commands
 ├── rules/              # Global rules
 └── scripts/            # Validation scripts

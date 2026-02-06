@@ -146,6 +146,47 @@ Use `php artisan make:*` for everything:
 - `make:livewire Posts/CreatePost`
 - `make:filament-resource Post --generate`
 
+### Always Use --no-interaction
+```bash
+# ✅ Non-interactive (AI-friendly)
+php artisan make:model Post -mfsc --no-interaction
+
+# ❌ May prompt for input
+php artisan make:model Post
+```
+
+## Laravel 11/12 Structure
+
+### Modern Structure (Laravel 11+)
+```
+bootstrap/
+├── app.php          # Middleware, exceptions, routing
+├── providers.php    # Service providers
+routes/
+├── console.php      # Console commands & schedule
+app/
+├── Console/Commands/ # Auto-discovered, no registration needed
+```
+
+### Legacy Structure (Laravel 10)
+```
+app/
+├── Http/Kernel.php       # Middleware registration
+├── Console/Kernel.php    # Schedule & commands
+├── Exceptions/Handler.php
+├── Providers/
+```
+
+### Detect Structure
+```php
+// Check for legacy structure
+if (file_exists(base_path('app/Http/Kernel.php'))) {
+    // Laravel 10 structure - use Kernel.php
+} else {
+    // Laravel 11+ structure - use bootstrap/app.php
+}
+```
+
 ## Testing
 
 - Most tests should be feature tests
